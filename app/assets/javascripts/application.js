@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require jquery
+
+//= require jquery_ujs
+//= require bootstrap/dist/js/bootstrap.min
+//= require bootstrap-sprockets
+//= require bootstrap.min
+//= require_tree .
