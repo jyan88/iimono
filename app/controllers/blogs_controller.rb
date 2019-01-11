@@ -1,11 +1,13 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   #before_action :logged_in_user, only: [:new, :edit, :destroy, :index, :update]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  #before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
-
+    @blogs = Blog.all
+    @current_user = current_user
   end
+
 
   def new
     if params[:back]
