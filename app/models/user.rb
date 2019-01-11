@@ -9,4 +9,5 @@ class User < ApplicationRecord
   #devise :database_authenticatable, :registerable,
   #       :recoverable, :rememberable, :validatable,
   #       :lockable,:timeoutable,:omniauthable
+  mount_uploader :image, ImageUploader
 end
