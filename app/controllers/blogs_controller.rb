@@ -17,6 +17,34 @@ class BlogsController < ApplicationController
   end
 
   def create
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id #現在ログインしているuserのidを、blogのuser_idカラムに挿入する
+      if @blog.save
+      # 一覧画面へ遷移して"投稿しました！"とメッセージを表示します。
+        redirect_to blogs_path, notice: "おすすめしました！"
+      #BlogMailer.blog_mail(@blog).deliver
+      else
+      # 入力フォームを再描画します。
+        render 'new'
+      end
+  end
+
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+      if @blog.update(blog_params)
+        redirect_to blogs_path, notice: "おすすめを編集しました！"
+      else
+        render 'edit'
+      end
+  end
+
+  def destroy
+    @blog.destroy
+    redirect_to blogs_path, notice:"投稿を削除しました！"
   end
 
   def show
@@ -27,8 +55,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image, :image_cache, :email)
+    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address)
   end
-
 
 end
