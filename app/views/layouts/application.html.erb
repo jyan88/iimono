@@ -11,7 +11,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-light bg-light navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
@@ -20,14 +20,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-              <a class="navbar-brand" href="/blogs">いいモノマガジン（仮）</a>
+              <a class="logo" href="/blogs">いいモノマガジン（仮）</a>
            </div>
             <div id="gnavi" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
                 <li><a href="/blogs">おすすめ一覧</a></li>
                 <li><a href="/blogs/new">おすすめする</a></li>
                 <li><% if user_signed_in? %>
-                <li><%= link_to "マイページ", blogs_path %></li>
+                <li><%= link_to "マイページ", edit_user_registration_path %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                   <% else %>
                 <li><%= link_to "新規登録", new_user_registration_path %></li>
