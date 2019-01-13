@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
-  resources :users
-
   devise_for :users
+  get 'users/:id' => 'users#show' #Mypageへのルーティング
+
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

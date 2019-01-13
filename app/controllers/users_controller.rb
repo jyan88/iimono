@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:edit, :show, :edit, :update]
+  #before_action :correct_user, only: [:edit, :show, :edit, :update]
 
   def edit
     @user = User.find(params[:id])
@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @favorites_blogs = @user.favorite_blogs
+    #@user = User.find(params[:id])
+    #@favorites_blogs = @user.favorite_blogs
   end
 
   private
@@ -27,13 +27,6 @@ class UsersController < ApplicationController
 
  def set_user
    @user = User.find(params[:id])
- end
-
- def correct_user
-   user = User.find(params[:id])
-   if current_user != user
-     redirect_to blog_path
-   end
  end
 
 end
