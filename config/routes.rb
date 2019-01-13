@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
+  root to: 'blogs#new'
 
   resources :blogs do
     collection do
@@ -16,5 +16,4 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  root 'blogs#index'
 end

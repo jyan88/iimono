@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :ensure_correct_user, only: [:update, :destroy, :edit]
+  #before_action :ensure_correct_user, only: [:update, :destroy, :edit]
 
   def index
     @blogs = Blog.all
@@ -60,16 +60,12 @@ class BlogsController < ApplicationController
 
   private
 
-  def blog_params
-    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address)
+  def set_blog
+    @blog = Blog.find(params[:id])
   end
 
-  def ensure_correct_user
-    @blog = Blog.find_by(id:params[:id])
-    if @blog.user_id != @current_user.id
-      flash[:notice] = "権限がありません"
-      redirect_to blog_path
-    end
+  def blog_params
+    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address)
   end
 
 end
