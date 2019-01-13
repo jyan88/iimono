@@ -1,5 +1,7 @@
+<p><%= notice %></p>
+
 <% @blogs.each do |blog| %><br>
-    <div class="col-xs-12 col-md-6 box17"><%= blog.user.name %>さんの投稿:<%= blog.content %></div>
+    <div class="col-xs-12 col-md-8 box17"><%= blog.user.name %>さんの投稿:<%= blog.content %></div>
       <% if blog.image.present? %>
         <div class="file"><%= image_tag(blog.image.url , size: 200) %></div>
       <% end %>
