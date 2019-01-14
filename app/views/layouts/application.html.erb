@@ -27,7 +27,7 @@
                 <li><a href="/blogs">おすすめ一覧</a></li>
                 <li><% if user_signed_in? %>
                 <li><%= link_to "おすすめする", new_blog_path %></li>
-                <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+                <li><%= link_to "マイページ", user_path(@current_user) %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                   <% else %>
                 <li><%= link_to "新規登録", new_user_registration_path %></li>
@@ -39,7 +39,7 @@
         </nav>
     </header>
 
-    <% if notice %>
+    <br><% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
     <% if alert %>

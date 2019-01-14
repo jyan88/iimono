@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'blogs#new'
+  root to: 'blogs#index'
 
   resources :blogs do
     collection do
@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
+  resources :users, only: [:show]
+
   devise_for :users
-  get 'users/:id' => 'users#show' #Mypageへのルーティング
 
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"

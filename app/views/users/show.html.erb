@@ -1,12 +1,8 @@
-<%= image_tag(@user.icon, size: 60) %>
-<h1><%= @user.name %>のページ</h1>
 
-<p>メールアドレス: <%= @user.email %></p>
+  <%= @user.name %>さんのページ</div>
+  <div class=""><%= link_to "変更する", edit_user_registration_path(@user.id) %></div>
 
-<h2><%=@user.name%>さんのお気に入り一覧</h2>
-  <% @favorites_blogs.each do |favorites_blogs| %>
-    <p><%=favorites_blogs.content%></p>
-    <p><%=image_tag favorites_blogs.image%></p>
-  <%end%>
+  <h2><%=@current_user.name%>さんのお気に入り一覧</h2>
+      
 
-<h3><%= link_to "ブログ一覧画面へ",blogs_path %></h3>
+  <h3><%= link_to "投稿一覧画面へ",blogs_path %></h3>
