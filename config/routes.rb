@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:create, :destroy]
 
-  resources :users, only: [:show]
-
   devise_for :users
+
+  resources :users, only: [:show, :edit]
 
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"

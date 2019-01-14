@@ -3,9 +3,12 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
   #before_action :ensure_correct_user, only: [:update, :destroy, :edit]
 
+  PER = 8
+
   def index
     @blogs = Blog.all
     @current_user = current_user
+    @blogs = Blog.page(params[:page]).per(PER)
   end
 
   def new

@@ -1,4 +1,11 @@
-<% @blogs.each do |blog| %><br>
+<dl class="searchbox">
+  <%= search_form_for @search, url: blogs_path do |f| %>
+    <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
+    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+  <% end %>
+</dl>
+
+<% @search_blogs.each do |blog| %><br>
     <div class="col-xs-12 col-md-8 box17"><%= blog.user.name %>さんの投稿:<%= blog.content %></div>
       <% if blog.image.present? %>
         <div class="file"><%= image_tag(blog.image.url , size: 200) %></div>
@@ -10,3 +17,4 @@
           <div class="col-md-4"><%= link_to "お気に入り", blog_path(blog.id) %></div>
         <% end %>
     <% end %>
+<%= paginate @blogs %>
