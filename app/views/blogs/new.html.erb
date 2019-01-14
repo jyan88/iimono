@@ -11,18 +11,23 @@
     </div>
   <% end %>
 
+  <div class="blog_title">
+    <%= form.label :title %><br>
+    <%= form.text_field :title, :size=>"50" %>
+  </div><br>
+
   <div class="blog_content">
     <%= form.label :content %>
-    <%= form.text_field :content, :size=>"100" %>
+    <%= form.cktext_area :content %>
   </div>
 
   <span class="btn btn-secondary">
     <div class="file_field">
-      <%= form.label:画像投稿 %>
+      <%= form.label:画像 %>
       <%= form.file_field :image %>
       <%= form.hidden_field :image_cache %>
     </div>
   </span>
 
-<%= form.submit "投稿する",class:"btn-primary" %>
+<br><%= form.submit "投稿する",class:"btn-primary" %>
 <% end %>

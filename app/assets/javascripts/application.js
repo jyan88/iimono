@@ -21,6 +21,7 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require bootstrap-sprockets
 //= require bootstrap.min
+//= require ckeditor/init
 //= require_tree .
 import "bootstrap-honoka/dist/css/bootstrap.min.css"
 import "bootstrap-honoka/dist/js/bootstrap.min.js"
