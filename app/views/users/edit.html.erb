@@ -1,9 +1,37 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.icon? %>
-    <%= image_tag @user.icon.url %>
-  <% else %>
-    <%= image_tag("/public/images/no-image.png") %>
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
   <% end %>
-  <%= f.file_field :icon %>
-  <%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary' %>
+
+<p><%= image_tag(@user.icon.url) %></p>
+  <div class="blog_title">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+
+    <br><span class="btn btn-secondary">
+      <div class="field">
+        <%= form.label :ユーザーアイコン %>
+        <%= form.file_field :icon %><br>
+        <%= form.hidden_field :icon_cache %>
+      </div>
+    </span>
+  </div>
+<%= form.submit "編集する" %>
 <% end %>
