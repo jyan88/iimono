@@ -23,7 +23,7 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id #現在ログインしているuserのidを、blogのuser_idカラムに挿入する
       if @blog.save
-      # 一覧画面へ遷移して"投稿しました！"とメッセージを表示します。
+      # 一覧画面へ遷移して"おすすめしました！"とメッセージを表示します。
         redirect_to blogs_path, notice: "おすすめしました！"
       #BlogMailer.blog_mail(@blog).deliver
       else
@@ -47,7 +47,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice:"投稿を削除しました！"
+    redirect_to blogs_path, notice:"おすすめを削除しました！"
   end
 
   def show
