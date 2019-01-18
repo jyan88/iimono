@@ -2,6 +2,9 @@
   <%= @user.name %>さんのページ</div>
   <div class="default"><%= link_to "変更する", edit_user_path(current_user.id) %></div>
 
-
+  <h2><%=@user.name%>さんのお気に入り一覧</h2>
+      <% @favorites_blogs.each do |favorites_blogs| %>
+        <p><%=image_tag favorites_blogs.image.url%></p>
+      <%end%>
 
   <h3><%= link_to "投稿一覧画面へ",blogs_path %></h3>
