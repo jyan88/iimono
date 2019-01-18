@@ -9,11 +9,15 @@
   <% end %>
 <% end %>
 
-<h2>コメント一覧</h2>
-<% @comments.each do |c| %>
-  <div>
-    <a href="/users/<%= @blog.user.id %>"><%= c.user.name %></a>
-    <%= c.content %>
-    <hr>
-  </div>
-<% end %>
+<!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+ <div id="comments_area">
+   <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+   <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+ </div>
+
+ <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+ <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+
+ <%= link_to '編集', edit_blog_path(@blog) %> |
+ <%= link_to '戻る', blogs_path %>
+</div>

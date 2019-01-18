@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'blogs#index'
 
   resources :blogs do
+    resources :comments
     collection do
       post :confirm
     end
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show, :edit, :destroy, :update]
-  resources :comments, only: [:create, :destroy]
 
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"

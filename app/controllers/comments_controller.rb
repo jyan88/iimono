@@ -1,16 +1,21 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_back(fallback_location: root_path)
-    else
-      redirect_back(fallback_location: root_path)
+    # Blogをパラメータの値から探し出し,Blogに紐づくcommentsとしてbuildします。
+    @blog = Blog.find(params[:blog_id])
+    @comment = @blog.comments.build(comment_params)
+    # クライアント要求に応じてフォーマットを変更
+    respond_to do |format|
+      if @comment.save
+        format.js { render :index }
+      else
+        format.html { redirect_to blog_path(@blog), notice: '投稿できませんでした...' }
+      end
     end
-
   end
 
   private
+  # ストロングパラメーター
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :blog_id)
+    params.require(:comment).permit(:blog_id, :content)
   end
 end

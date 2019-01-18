@@ -54,7 +54,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
     @comments = @blog.comments
-    @comment = Comment.new
+    @comment = @blog.comments.build
   end
 
   def confirm
@@ -70,7 +70,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address)
+    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address, :comment, :comments)
   end
 
   def ensure_correct_user
