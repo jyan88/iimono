@@ -19,7 +19,14 @@
 
     <div class="blog_content">
       <%= form.label :content %>
-      <%= form.text_field :content, :size=>"100" %>
+      <%= form.hidden_field :content, id: :blog_content %>
+      <trix-editor input="blog_content"></trix-editor>
     </div>
-      <%= form.submit "修正する" %>
+    <span class="btn btn-secondary">
+      <div class="file_field">
+        <%= form.file_field :image%>
+        <%= form.hidden_field :image_cache %>
+      </div>
+    </span>
+<%= form.submit "修正する" %>
 <% end %>

@@ -1,5 +1,6 @@
 <%#<%= video_tag("topship.mp4", autoplay: true, loop: true) %>
 
+
 <dl class="searchbox">
   <%= search_form_for @search, url: blogs_path do |f| %>
     <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
@@ -8,7 +9,7 @@
 </dl>
 
 <% @search_blogs.each do |blog| %><br>
-    <div class="col-xs-12 col-md-10 box17"><%= blog.user.name %>さんの投稿: <%= blog.title %>
+    <div class="col-xs-12 col-md-8 box17"><%= blog.user.name %>さんの投稿: <%= blog.title %>
     <br><%= simple_format(blog.content) %></div>
       <% if blog.image.present? %>
         <div class="file"><%= image_tag(blog.image.url , size: 200) %></div>
@@ -17,8 +18,8 @@
           <div class="col-md-2"><%= link_to "編集する", edit_blog_path(blog.id) %></div>
           <div class="col-md-2"><%= link_to "削除する", blog_path(blog.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %></div>
         <%else%>
-          <div class="col-md-2"><%= link_to "詳細をみる", blog_path(blog.id) %></div>
+          <div class="col-md-4"><%= link_to "詳細をみる", blog_path(blog.id) %></div>
         <% end %>
     <% end %>
 
-<div class=""><%= paginate @blogs %>
+<div class="pager"><%= paginate @blogs %></div>
