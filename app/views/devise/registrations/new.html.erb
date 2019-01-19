@@ -23,7 +23,7 @@
     <div class="field">
       <%= f.label :ユーザーアイコン %>
       <%= f.file_field :icon %><br>
-      
+
     </div>
   </span>
 
@@ -45,6 +45,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+
+<%#  <div class="field">
+    <%= f.label :adress %><br />
+<%#    <%= f.address_field :adress, autofocus: true %>
+<%#  </div>%>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
