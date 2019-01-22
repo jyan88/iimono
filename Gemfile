@@ -68,7 +68,7 @@ gem "jquery-rails"
 gem 'font-awesome-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'sass-rails', '~> 5.0'
-gem 'honoka-rails', '>= 3.3.6.3'
+#gem 'honoka-rails', '>= 3.3.6.3'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bcrypt', '3.1.11'

@@ -22,5 +22,3 @@
 //= require ckeditor/init
 //= require trix
 //= require_tree .
-import "bootstrap-honoka/dist/css/bootstrap.min.css"
-import "bootstrap-honoka/dist/js/bootstrap.min.js"
