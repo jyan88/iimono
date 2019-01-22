@@ -9,10 +9,11 @@
   <% end %>
 <% end %>
 
-<br><div>
+<br>
+<div id="comments_area">
   <h4>コメント</h4>
 <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
- <div id="comments_area">
+ <div>
    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
    <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
  </div>
