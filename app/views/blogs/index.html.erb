@@ -1,12 +1,14 @@
 <%#<%= video_tag("topship.mp4", autoplay: true, loop: true) %>
 
-
-<dl class="searchbox">
-  <%= search_form_for @search, url: blogs_path do |f| %>
-    <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
-    <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-  <% end %>
-</dl>
+<br>
+<div class="searchall">
+  <dl class="searchbox">
+    <%= search_form_for @search, url: blogs_path do |f| %>
+      <dt><%= f.text_field :content_cont ,placeholder: '検索するテキストを入力...' %></dt>
+      <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+    <% end %>
+  </dl>
+</div>
 
 <% @search_blogs.each do |blog| %><br>
     <div class="col-xs-12 col-md-8 box17"><%= blog.user.name %>さんの投稿: <%= blog.title %>
