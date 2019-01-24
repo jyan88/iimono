@@ -24,11 +24,37 @@
 
   <span class="btn btn-secondary">
     <div class="file_field">
-      <%= form.label:画像 %>
+      <%= form.label :メイン画像 %>
       <%= form.file_field :image %>
       <%= form.hidden_field :image_cache %>
     </div>
   </span>
 
-<br><%= form.submit "投稿する",class:"btn-primary" %>
+<br><br>
+  <span class="btn btn-secondary">
+    <div class="file_field">
+      <%= form.label:画像1 %>
+      <%= form.file_field :image1 %>
+      <%= form.hidden_field :image1_cache %>
+    </div>
+  </span>
+
+
+  <span class="btn btn-secondary">
+    <div class="file_field">
+      <%= form.label:画像2 %>
+      <%= form.file_field :image2 %>
+      <%= form.hidden_field :image2_cache %>
+    </div>
+  </span>
+
+  <span class="btn btn-secondary">
+    <div class="file_field">
+      <%= form.label:画像3 %>
+      <%= form.file_field :image3 %>
+      <%= form.hidden_field :image3_cache %>
+    </div>
+  </span>
+
+<br><br><br><%= form.submit "投稿する",class:"btn-primary" %>
 <% end %>

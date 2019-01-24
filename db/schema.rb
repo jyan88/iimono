@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_024544) do
+ActiveRecord::Schema.define(version: 2019_01_24_002241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 2019_01_18_024544) do
     t.text "image"
     t.bigint "{:foreign_key=>true}_id"
     t.bigint "user_id"
+    t.text "image1"
+    t.text "image2"
+    t.text "image3"
     t.index ["user_id"], name: "index_blogs_on_user_id"
     t.index ["{:foreign_key=>true}_id"], name: "index_blogs_on_{:foreign_key=>true}_id"
   end

@@ -1,6 +1,18 @@
 <p><%= @blog.title %></p>
 <p><%= image_tag(@blog.image.url) if @blog.image.url %></p>
 <p><%= @blog.content %></p>
+
+<p class="col-xs-12 underimage_area">
+  <table border="1">
+    <tr>
+      <td><%= image_tag(@blog.image1.url) if @blog.image1.url %><p><%= @blog.content %></td>
+      <td><%= image_tag(@blog.image2.url) if @blog.image2.url %><p><%= @blog.content %></td>
+      <td><%= image_tag(@blog.image3.url) if @blog.image2.url %><p><%= @blog.content %></td>
+    </tr>
+  </table>
+</p>
+
+
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>

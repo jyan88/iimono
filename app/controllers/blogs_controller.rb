@@ -70,7 +70,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address, :comment, :comments)
+    params.require(:blog).permit(:title, :content, :image, :image_cache, :email, :address, :comment, :comments, :image1, :image1_cache, :image2, :image2_cache, :image3, :image3_cache)
   end
 
   def ensure_correct_user
