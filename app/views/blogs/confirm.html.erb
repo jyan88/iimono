@@ -5,7 +5,7 @@
   <%= form.hidden_field :content %>
 
   <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= simple_format(blog.content) %></p>
+  <p>本文:<%= simple_format(@blog.content) %></p>
   <%= image_tag(@blog.image.url) %>
   <%= form.hidden_field :image_cache %>
 
